@@ -29,6 +29,17 @@ public class EcPoint {
 	public void setY(byte[] y) {
 		this.y = y;
 	}
+	
+	public byte[] getEncoded() {
+		if(x == null || y == null) {
+			return null;
+		}
+		byte[] rv = new byte[x.length + y.length + 1];
+		rv[0] = 4;
+		System.arraycopy(x, 0, rv, 1, x.length);
+		System.arraycopy(y, 0, rv, 1 + x.length, y.length);
+		return rv;
+	}
 
 	static {
 		Library.loadMathLib();
