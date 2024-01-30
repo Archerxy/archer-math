@@ -2,12 +2,17 @@ package com.archer.math;
 
 public class EcPoint {
 	
-	public EcPoint() {}
 	
 	public byte[] x;
 	
 	public byte[] y;
-	
+
+	public EcPoint() {}
+
+	public EcPoint(byte[] x, byte[] y) {
+		this.x = x;
+		this.y = y;
+	}
 	
 	public byte[] getX() {
 		return x;
