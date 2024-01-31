@@ -1,5 +1,7 @@
 package com.archer.math;
 
+import java.util.Arrays;
+
 public class EcPoint {
 	
 	
@@ -39,6 +41,20 @@ public class EcPoint {
 		System.arraycopy(x, 0, rv, 1, x.length);
 		System.arraycopy(y, 0, rv, 1 + x.length, y.length);
 		return rv;
+	}
+	
+	public static EcPoint decode(byte[] in) {
+		int off = 0;
+		if(in.length == 65) {
+			if(in[0] != 4) {
+				throw new IllegalArgumentException("can not decode input bytes to EcPoint");
+			}
+			off = 1;
+		} else if(in.length != 64) {
+			throw new IllegalArgumentException("can not decode input bytes to EcPoint");
+		}
+		
+		return new EcPoint(Arrays.copyOfRange(in, off, 32), Arrays.copyOfRange(in, off+32, in.length));
 	}
 
 	static {
