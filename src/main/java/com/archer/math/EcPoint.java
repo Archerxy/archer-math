@@ -73,13 +73,11 @@ public class EcPoint {
 	
 	public static native EcPoint sub(EcPoint point1, EcPoint point2, byte[] p);
 	
-	public static native EcPoint mulCurveAdd(byte[] d, Curve curve);
-	
 	public static native EcPoint mul(byte[] d, int curveId);
-	
-	public static native EcPoint mulCurve(byte[] d, Curve curve);
 
 	public static native EcPoint mulPoint(byte[] d, int curveId, EcPoint point);
+	
+	public static native EcPoint mulCurve(byte[] d, Curve curve);
 	
 	public static native EcPoint mulCurvePoint(byte[] d, Curve curve, EcPoint point);
 }
