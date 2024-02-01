@@ -54,7 +54,7 @@ public class EcPoint {
 			throw new IllegalArgumentException("can not decode input bytes to EcPoint");
 		}
 		
-		return new EcPoint(Arrays.copyOfRange(in, off, 32), Arrays.copyOfRange(in, off+32, in.length));
+		return new EcPoint(Arrays.copyOfRange(in, off, off+32), Arrays.copyOfRange(in, off+32, in.length));
 	}
 
 	static {
