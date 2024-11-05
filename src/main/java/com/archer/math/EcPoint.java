@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 public class EcPoint {
 	
+	protected byte[] x;
 	
-	public byte[] x;
-	
-	public byte[] y;
+	protected byte[] y;
 
 	public EcPoint() {}
 
@@ -81,3 +80,4 @@ public class EcPoint {
 	
 	public static native EcPoint mulCurvePoint(byte[] d, Curve curve, EcPoint point);
 }
+
